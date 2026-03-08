@@ -12,36 +12,39 @@ from dump_wing_channels import main as dump_wing_main
 
 DEFAULT_MIXER_IP = "192.168.1.126"
 
+
 class TrackRenamerApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Audacity Track Renamer")
-        self.root.wm_attributes('-topmost', 1)
+        self.root.wm_attributes("-topmost", 1)
         # Load initial track names from JSON or defaults
         self.track_names = rename_tracks.get_track_names()
-        
+
         # Create a main frame
         main_frame = tk.Frame(root)
         main_frame.pack(padx=20, pady=20)
-        
+
         # --- IP Configuration ---
         ip_frame = tk.Frame(main_frame)
         ip_frame.grid(row=0, column=0, columnspan=4, pady=(0, 15), sticky="ew")
-        ip_frame.columnconfigure(1, weight=1) # Make entry expand
-        
+        ip_frame.columnconfigure(1, weight=1)  # Make entry expand
+
         lbl_ip = tk.Label(ip_frame, text="Mixer IP:")
         lbl_ip.grid(row=0, column=0, padx=(0, 5))
-        
+
         self.ip_entry = tk.Entry(ip_frame)
         self.ip_entry.grid(row=0, column=1, sticky="ew")
-        self.load_config() # Populate the IP entry
-        
+        self.load_config()  # Populate the IP entry
+
         # Instruction Label
-        lbl_instruct = tk.Label(main_frame, text="Edit track names below and click 'Rename Tracks'.")
+        lbl_instruct = tk.Label(
+            main_frame, text="Edit track names below and click 'Rename Tracks'."
+        )
         lbl_instruct.grid(row=1, column=0, columnspan=4, pady=(0, 15))
 
         self.entries = []
-        
+
         # Create 32 entries in 2 columns
         for i in range(32):
             if i < 16:
@@ -50,30 +53,40 @@ class TrackRenamerApp:
             else:
                 col_offset = 2
                 row = (i - 16) + 2
-            
+
             # Label
-            lbl = tk.Label(main_frame, text=f"{i+1:02d}:")
+            lbl = tk.Label(main_frame, text=f"{i + 1:02d}:")
             lbl.grid(row=row, column=col_offset, sticky="e", padx=(5, 2))
-            
+
             # Entry
             entry = tk.Entry(main_frame, width=20)
             if i < len(self.track_names):
                 entry.insert(0, self.track_names[i])
-            
-            entry.grid(row=row, column=col_offset+1, padx=(0, 15), pady=2)
+
+            entry.grid(row=row, column=col_offset + 1, padx=(0, 15), pady=2)
             self.entries.append(entry)
 
         # Buttons Frame
         self.btn_frame = tk.Frame(root)
         self.btn_frame.pack(pady=(0, 20))
-        
-        self.btn_run = tk.Button(self.btn_frame, text="Rename Tracks", command=self.run_rename, height=2, width=15)
+
+        self.btn_run = tk.Button(
+            self.btn_frame,
+            text="Rename Tracks",
+            command=self.run_rename,
+            height=2,
+            width=15,
+        )
         self.btn_run.pack(side=tk.LEFT, padx=5)
-        
-        self.btn_reset = tk.Button(self.btn_frame, text="Reset Local", command=self.reset_defaults)
+
+        self.btn_reset = tk.Button(
+            self.btn_frame, text="Reset Local", command=self.reset_defaults
+        )
         self.btn_reset.pack(side=tk.LEFT, padx=5)
 
-        self.btn_refresh = tk.Button(self.btn_frame, text="Refresh from Mixer", command=self.refresh_from_mixer)
+        self.btn_refresh = tk.Button(
+            self.btn_frame, text="Refresh from Mixer", command=self.refresh_from_mixer
+        )
         self.btn_refresh.pack(side=tk.LEFT, padx=5)
 
     def load_config(self):
@@ -82,11 +95,11 @@ class TrackRenamerApp:
         ip = DEFAULT_MIXER_IP
         if os.path.exists(config_path):
             try:
-                with open(config_path, 'r') as f:
+                with open(config_path, "r") as f:
                     config = json.load(f)
                     ip = config.get("mixer_ip", DEFAULT_MIXER_IP)
             except (json.JSONDecodeError, IOError):
-                pass # Use default if file is corrupt or unreadable
+                pass  # Use default if file is corrupt or unreadable
         self.ip_entry.delete(0, tk.END)
         self.ip_entry.insert(0, ip)
 
@@ -95,7 +108,7 @@ class TrackRenamerApp:
         config_path = app_paths.get_data_file_path("config.json")
         config = {"mixer_ip": self.ip_entry.get().strip()}
         try:
-            with open(config_path, 'w') as f:
+            with open(config_path, "w") as f:
                 json.dump(config, f, indent=4)
         except IOError as e:
             print(f"Warning: Could not save config file: {e}")
@@ -117,7 +130,7 @@ class TrackRenamerApp:
 
     def refresh_from_mixer(self):
         """Fetches names from the WING mixer in a background thread."""
-        self.save_config() # Save the IP before trying to connect
+        self.save_config()  # Save the IP before trying to connect
         self.root.configure(cursor="wait")
         self.set_ui_state(False)
 
@@ -143,32 +156,35 @@ class TrackRenamerApp:
         self.reset_defaults()
         self.root.configure(cursor="")
         self.set_ui_state(True)
-        messagebox.showinfo("Success", "Successfully refreshed track names from the mixer.")
+        messagebox.showinfo(
+            "Success", "Successfully refreshed track names from the mixer."
+        )
 
     def on_refresh_error(self, error):
         """UI update on failed mixer refresh."""
         self.root.configure(cursor="")
         self.set_ui_state(True)
-        messagebox.showerror("Mixer Error", f"Could not get names from mixer.\n\nDetails: {error}")
+        messagebox.showerror(
+            "Mixer Error", f"Could not get names from mixer.\n\nDetails: {error}"
+        )
 
     def run_rename(self):
-        """Sends the names from the UI entries to Audacity."""
+        """Sends the names from the UI entries to the working rename function."""
         try:
-            # Start at the top of the Audacity project
-            rename_tracks.send_command("SelectAll:")
-            rename_tracks.send_command("TrackHome:")
-            
-            for i, entry in enumerate(self.entries):
-                name = entry.get().strip()
-                # Apply the name to the current track
-                rename_tracks.send_command(f'SetTrack:Name="{name}"')
-                # Move focus to the next track down
-                rename_tracks.send_command("SelectNextTrack:")
-            
-            messagebox.showinfo("Success", "Audacity tracks renamed!")
-            
+            # 1. Extract the names currently in the UI text boxes
+            ui_names = [entry.get().strip() for entry in self.entries]
+
+            # 2. Call the working implementation from rename_tracks.py
+            # This handles the pipes, indexing, and delays correctly.
+            rename_tracks.rename_all_tracks(names=ui_names)
+
+            messagebox.showinfo("Success", "Audacity tracks renamed successfully!")
+
         except Exception as e:
-            messagebox.showerror("Audacity Error", f"Is Audacity running with mod-script-pipe enabled?\n\n{e}")
+            messagebox.showerror(
+                "Audacity Error", f"Could not complete renaming.\n\nDetails: {e}"
+            )
+
 
 if __name__ == "__main__":
     root = tk.Tk()
