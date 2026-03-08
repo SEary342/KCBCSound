@@ -2,8 +2,6 @@
 
 This tool automates the process of renaming tracks in Audacity. It features a graphical interface that allows you to manually edit track names or fetch them directly from a Behringer WING mixing console.
 
-[Application Screenshot](renamer.png)
-
 ## Prerequisites
 
 *   **Audacity**: Version 2.3.2 or later.
@@ -40,6 +38,8 @@ To allow Python to control Audacity, you must enable the `mod-script-pipe` modul
 
 ## Usage
 
+<img src="renamer.png" alt="Application Screenshot" width="500"/>
+
 1.  Open your Audacity project.
     *   Ensure your project has **32 tracks** loaded to match the script's list.
 2.  Run the UI application from your terminal:
@@ -74,7 +74,8 @@ You can bundle this application into a standalone executable (e.g., `.app` for m
 
 1.  Run the build command:
     ```bash
-    build.sh
+    uv run pyinstaller --name "Audacity Track Renamer" --windowed rename_tracks_ui.py
     ```
+    *   The `--windowed` flag ensures the application runs without a terminal window appearing.
 
 2.  The compiled application will be available in the `dist/` directory.
