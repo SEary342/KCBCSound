@@ -2,6 +2,8 @@
 
 This tool automates the process of renaming tracks in Audacity. It features a graphical interface that allows you to manually edit track names or fetch them directly from a Behringer WING mixing console.
 
+[Application Screenshot](renamer.png)
+
 ## Prerequisites
 
 *   **Audacity**: Version 2.3.2 or later.

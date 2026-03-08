@@ -12,6 +12,8 @@ A GUI-based utility to bridge the gap between a **Behringer WING** console and *
 * **Key Features**: Bi-directional name syncing via OSC, automated track labeling via `mod-script-pipe`, and cross-platform desktop bundling.
 * **Status**: Stable / Production
 
+[Application Screenshot](audacity_reanamer/renamer.png)
+
 ## 🚀 Getting Started
 
 This repository uses [uv](https://github.com/astral-sh/uv) for high-performance dependency management and project isolation.

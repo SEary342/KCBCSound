@@ -29,6 +29,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "behringer-mixer" },
+    { name = "python-osc" },
 ]
 
 [package.dev-dependencies]
@@ -37,7 +38,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "behringer-mixer", specifier = ">=0.4.12" }]
+requires-dist = [
+    { name = "behringer-mixer", specifier = ">=0.4.12" },
+    { name = "python-osc", specifier = ">=1.8.3" },
+]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pyinstaller", specifier = ">=6.19.0" }]
