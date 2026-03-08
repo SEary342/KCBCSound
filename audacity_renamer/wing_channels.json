@@ -1,0 +1,258 @@
+[
+    {
+        "mix_fader": 0.7975000143051147,
+        "mix_fader_db": "1.9",
+        "mix_on": true,
+        "config_name": "Kick",
+        "config_color": 6,
+        "config_color_name": "OLIVE_GREEN"
+    },
+    {
+        "mix_fader": 0.7412109375,
+        "mix_fader_db": "-0.4",
+        "mix_on": true,
+        "config_name": "Snare",
+        "config_color": 6,
+        "config_color_name": "OLIVE_GREEN"
+    },
+    {
+        "mix_fader": 0.7599999904632568,
+        "mix_fader_db": "0.4",
+        "mix_on": true,
+        "config_name": "Low Tom",
+        "config_color": 6,
+        "config_color_name": "OLIVE_GREEN"
+    },
+    {
+        "mix_fader": 0.7450000047683716,
+        "mix_fader_db": "-0.2",
+        "mix_on": true,
+        "config_name": "High Tom",
+        "config_color": 6,
+        "config_color_name": "OLIVE_GREEN"
+    },
+    {
+        "mix_fader": 0.7350000143051147,
+        "mix_fader_db": "-0.6",
+        "mix_on": true,
+        "config_name": "Overhead L",
+        "config_color": 6,
+        "config_color_name": "OLIVE_GREEN"
+    },
+    {
+        "mix_fader": 0.76500004529953,
+        "mix_fader_db": "0.6",
+        "mix_on": true,
+        "config_name": "Hi Hat",
+        "config_color": 6,
+        "config_color_name": "OLIVE_GREEN"
+    },
+    {
+        "mix_fader": 0.788330078125,
+        "mix_fader_db": "1.5",
+        "mix_on": true,
+        "config_name": "BASS",
+        "config_color": 5,
+        "config_color_name": "GREEN"
+    },
+    {
+        "mix_fader": 0.0,
+        "mix_fader_db": "-oo",
+        "mix_on": false,
+        "config_name": "Keys L",
+        "config_color": 7,
+        "config_color_name": "YELLOW"
+    },
+    {
+        "mix_fader": 0.0,
+        "mix_fader_db": "-oo",
+        "mix_on": false,
+        "config_name": "Keys R",
+        "config_color": 7,
+        "config_color_name": "YELLOW"
+    },
+    {
+        "mix_fader": 0.654541015625,
+        "mix_fader_db": "-3.8",
+        "mix_on": true,
+        "config_name": "Piano Low",
+        "config_color": 7,
+        "config_color_name": "YELLOW"
+    },
+    {
+        "mix_fader": 0.656494140625,
+        "mix_fader_db": "-3.7",
+        "mix_on": true,
+        "config_name": "Piano High",
+        "config_color": 7,
+        "config_color_name": "YELLOW"
+    },
+    {
+        "mix_fader": 0.68212890625,
+        "mix_fader_db": "-2.7",
+        "mix_on": true,
+        "config_name": "Chris Acc Guitar",
+        "config_color": 4,
+        "config_color_name": "TURQUOISE"
+    },
+    {
+        "mix_fader": 0.667236328125,
+        "mix_fader_db": "-3.3",
+        "mix_on": true,
+        "config_name": "Acc Guitar",
+        "config_color": 0,
+        "config_color_name": "OFF"
+    },
+    {
+        "mix_fader": 0.738037109375,
+        "mix_fader_db": "-0.5",
+        "mix_on": true,
+        "config_name": "Chris Elec",
+        "config_color": 0,
+        "config_color_name": "OFF"
+    },
+    {
+        "mix_fader": 0.600830078125,
+        "mix_fader_db": "-6.0",
+        "mix_on": true,
+        "config_name": "Amb L",
+        "config_color": 0,
+        "config_color_name": "OFF"
+    },
+    {
+        "mix_fader": 0.0,
+        "mix_fader_db": "-oo",
+        "mix_on": false,
+        "config_name": "INST 2",
+        "config_color": 10,
+        "config_color_name": "CORAL"
+    },
+    {
+        "mix_fader": 0.8486328125,
+        "mix_fader_db": "3.9",
+        "mix_on": true,
+        "config_name": "Chris P",
+        "config_color": 4,
+        "config_color_name": "TURQUOISE"
+    },
+    {
+        "mix_fader": 0.8681640625,
+        "mix_fader_db": "4.7",
+        "mix_on": true,
+        "config_name": "MISSY",
+        "config_color": 4,
+        "config_color_name": "TURQUOISE"
+    },
+    {
+        "mix_fader": 0.468505859375,
+        "mix_fader_db": "-12.5",
+        "mix_on": false,
+        "config_name": "Channel 19",
+        "config_color": 10,
+        "config_color_name": "CORAL"
+    },
+    {
+        "mix_fader": 0.891845703125,
+        "mix_fader_db": "5.7",
+        "mix_on": true,
+        "config_name": "CHRISTINA",
+        "config_color": 10,
+        "config_color_name": "CORAL"
+    },
+    {
+        "mix_fader": 0.59375,
+        "mix_fader_db": "-6.3",
+        "mix_on": true,
+        "config_name": "Amb R",
+        "config_color": 0,
+        "config_color_name": "OFF"
+    },
+    {
+        "mix_fader": 0.7975000143051147,
+        "mix_fader_db": "1.9",
+        "mix_on": false,
+        "config_name": "Choir L",
+        "config_color": 3,
+        "config_color_name": "DARK_BLUE"
+    },
+    {
+        "mix_fader": 0.8175000548362732,
+        "mix_fader_db": "2.7",
+        "mix_on": false,
+        "config_name": "Choir R",
+        "config_color": 3,
+        "config_color_name": "DARK_BLUE"
+    },
+    {
+        "mix_fader": 0.0,
+        "mix_fader_db": "-oo",
+        "mix_on": false,
+        "config_name": "Choir R",
+        "config_color": 3,
+        "config_color_name": "DARK_BLUE"
+    },
+    {
+        "mix_fader": 0.0010416667209938169,
+        "mix_fader_db": "-89.5",
+        "mix_on": false,
+        "config_name": "Channel 25",
+        "config_color": 2,
+        "config_color_name": "MEDIUM_BLUE"
+    },
+    {
+        "mix_fader": 0.007708327379077673,
+        "mix_fader_db": "-86.3",
+        "mix_on": false,
+        "config_name": "Channel 26",
+        "config_color": 2,
+        "config_color_name": "MEDIUM_BLUE"
+    },
+    {
+        "mix_fader": 0.7524999976158142,
+        "mix_fader_db": "0.1",
+        "mix_on": false,
+        "config_name": "Channel 27",
+        "config_color": 0,
+        "config_color_name": "OFF"
+    },
+    {
+        "mix_fader": 0.7158203125,
+        "mix_fader_db": "-1.4",
+        "mix_on": false,
+        "config_name": "WLHH 1",
+        "config_color": 2,
+        "config_color_name": "MEDIUM_BLUE"
+    },
+    {
+        "mix_fader": 0.7275390625,
+        "mix_fader_db": "-0.9",
+        "mix_on": false,
+        "config_name": "WLHH 2",
+        "config_color": 2,
+        "config_color_name": "MEDIUM_BLUE"
+    },
+    {
+        "mix_fader": 0.7925000190734863,
+        "mix_fader_db": "1.7",
+        "mix_on": false,
+        "config_name": "Telex TB",
+        "config_color": 8,
+        "config_color_name": "BROWN"
+    },
+    {
+        "mix_fader": 0.0,
+        "mix_fader_db": "-oo",
+        "mix_on": false,
+        "config_name": "Shure Wireless",
+        "config_color": 8,
+        "config_color_name": "BROWN"
+    },
+    {
+        "mix_fader": 0.8330078125,
+        "mix_fader_db": "3.3",
+        "mix_on": true,
+        "config_name": "PASTOR",
+        "config_color": 2,
+        "config_color_name": "MEDIUM_BLUE"
+    }
+]

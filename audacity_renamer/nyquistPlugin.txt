@@ -1,0 +1,8 @@
+;nyquist plug-in
+;version 4
+;type tool
+
+(let ((names '("Kick" "Snare" "Low Tom" "High Tom" "Overhead L" "Hi Hat" "Bass" "Keys L" "Keys R" "Piano Low" "Piano High" "Chris Acc G" "Acc Guitar" "Chris Elec" "Amb L" "INST 2" "Chris Voc" "Missy" "Olivia" "CHRISTINA" "Amb R" "Choir L" "Choir R" "Choir R" "Ch 25" "Ch 26" "Ch 27" "WL HH 1" "WL HH 2" "Telex TB" "Shure Wirels" "PASTOR")))
+  (dolist (name names)
+    (aud-do (format nil "SetTrack:Name=\"~a\"" name))
+    (aud-do "SelectNextTrack")))

@@ -1,0 +1,15 @@
+[project]
+name = "kcbcsound"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "behringer-mixer>=0.4.12",
+    "python-osc>=1.8.3",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.19.0",
+]
